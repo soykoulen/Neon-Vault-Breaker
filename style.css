@@ -1,0 +1,150 @@
+/* Common neon styles */
+:root {
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --glass-bg: rgba(10, 10, 20, 0.7);
+  --text-glow: 0 0 10px var(--neon-pink), 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a1a, #1a0a2a);
+  color: white;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.6s ease;
+}
+
+/* Cold mode (difference > 20) */
+body.cold {
+  background: linear-gradient(135deg, #0a0f2a, #1a1a3a);
+}
+
+/* Warm mode (pulsation when difference < 5) */
+body.pulsing .vault-panel {
+  animation: pulseGlow 1.2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 20px var(--neon-pink), 0 0 40px rgba(255, 0, 255, 0.6);
+  }
+  to {
+    box-shadow: 0 0 30px var(--neon-pink), 0 0 60px rgba(255, 0, 255, 0.9);
+  }
+}
+
+.vault-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--neon-blue);
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  position: relative;
+}
+
+.vault-panel h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-shadow: var(--text-glow);
+}
+
+.energy-bar {
+  height: 12px;
+  background: #222;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 1px solid var(--neon-blue);
+}
+
+.energy-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #ff0055, #ff00ff);
+  transition: width 0.4s ease;
+}
+
+.energy-label {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--neon-blue);
+}
+
+#guessInput {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--neon-pink);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+#guessInput:focus {
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+#hackBtn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid var(--neon-pink);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 16px;
+}
+
+#hackBtn:hover {
+  background: rgba(255, 0, 255, 0.2);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.log {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--neon-blue);
+  border-radius: 8px;
+  padding: 10px;
+  height: 100px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.log div {
+  margin: 4px 0;
+  color: #00ffcc;
+}
+
+.status {
+  text-align: center;
+  min-height: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.best-score {
+  text-align: center;
+  font-size: 14px;
+  color: #00ffaa;
+}

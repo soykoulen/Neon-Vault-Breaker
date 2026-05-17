@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neon Vault Breaker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cold">
+  <div class="vault-panel">
+    <h1>NEON VAULT BREAKER</h1>
+    
+    <div class="energy-bar">
+      <div class="energy-fill" id="energyFill"></div>
+    </div>
+    <div class="energy-label">Energy: <span id="energyCount">7</span>/7</div>
+
+    <input type="number" id="guessInput" min="1" max="100" placeholder="Enter code (1–100)" autocomplete="off">
+    <button id="hackBtn">Hack</button>
+
+    <div class="log" id="log"></div>
+
+    <div class="status" id="status"></div>
+
+    <div class="best-score">Best Score: <span id="bestScore">—</span> attempts</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
